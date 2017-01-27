@@ -45,7 +45,7 @@ class MAX6675:
         Signals if measurement is finished.
         :return: True if measurement is ready for reading.
         """
-        return time.ticks_diff(self._last_measurement_start, time.ticks_ms()) > MAX6675.MEASUREMENT_PERIOD_MS
+        return time.ticks_ms() - self._last_measurement_start > MAX6675.MEASUREMENT_PERIOD_MS
 
     def error(self):
         """
