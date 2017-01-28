@@ -1,5 +1,6 @@
 # micropython-hw-lib
-Micropython (ESP8266) library for hardware peripherals 
+Micropython (ESP8266) library for hardware peripherals.
+The collection includes external repositories, therefore it is required to run `git submodule update --init` after cloning repository.
 
 ## Usage
 The scripts are simple python modules that should be placed directly into micropython filesystem and imported, e.g: 
