@@ -7,10 +7,15 @@ The scripts are simple python modules that should be placed directly into microp
 
 `from pcf8574 import PCF8574`.
 
+## Precompilation
+### Bytecode
 To save some space and time at import, individual files can be cross-compiled prior to transfering them to filesystem. This will generate micropython bytecode `.mpy` files that can be imported just like normal scripts with command above. The cross-compiler is part of micropython source and first needs to be built. Aftwerwards, it can be used like this:
 
 `MICROPYTHON_ROOT_DIR/mpy-cross/mpy-cross pcf8574.py`
 
+You can also use [uPyLoader](https://github.com/BetaRavener/uPyLoader) as a graphical interface to mpy-cross. Simply select files in left pane and press `Compile`. The bytecode files will be generated in same directory as source and are ready for transfer into device.
+
+### Freezing module
 However, these files still reside in filesystem. To optimize further, they can be "freezed" (saved) into Flash memory. This will make them permanent part of the micropython binary. This can be done by placing them inside target's `modules` or `scripts` folder, e.g:
 
 `MICROPYTHON_ROOT_DIR/esp8266/modules/`
