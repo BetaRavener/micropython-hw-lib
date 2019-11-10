@@ -1,7 +1,7 @@
 import time
 
 
-class MAX6675:
+class MAX6675():
     MEASUREMENT_PERIOD_MS = 220
 
     def __init__(self, sck, cs, so):
