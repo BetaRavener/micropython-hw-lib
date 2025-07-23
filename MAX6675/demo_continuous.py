@@ -2,11 +2,11 @@
 Temperature Monitoring using MAX6675 with ESP32  
 Author: Er-Rajas  
 Description:  
-  This script continuously reads temperature from the MAX6675 thermocouple sensor  
-  and prints the values over serial. Designed for MicroPython on ESP32.  
+This script continuously reads temperature from the MAX6675 thermocouple sensor  
+and prints the values over serial. Designed for MicroPython on ESP32.  
 
-  Adjust the delay on line 24 as needed: `time.sleep([desired_delay])`
-   
+Adjust the delay on line 24 as needed: `time.sleep([desired_delay])`
+  
 """
 
 from max6675 import MAX6675
