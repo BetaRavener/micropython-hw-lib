@@ -2,6 +2,8 @@
 # Following code periodicaly measures the distance using HCSR04 sensor
 # and trigers LED if an object was measured closer than specified
 # distance threshold.
+# Modified by Er-Rajas
+# Replaced .low() / .high() with .value(0) / .value(1)
 
 from hcsr04 import HCSR04
 import time
@@ -27,13 +29,13 @@ while True:
     # If the sensor itself is reporting something in range and its closer
     # than max_dist, triger the LED
     if d is not None and d < max_dist:
-        led.high()  # Lit up LED
+        led.value(1)  # Lit up LED
         start = time.ticks_ms()  # Save trigger time 
         print(d)  # Prints the distance that trigerred LED
 
     # Check if the LED is still lit and if so, check the timeout
     if start is not None and time.ticks_diff(time.ticks_ms(), start) > led_time * 1000:
-        led.low()  # Turn off LED
+        led.value(0)  # Turn off LED
         start = None  # Null the triger time => LED is off
 
     # Optional sleep to make terminal easier to read and prevent 

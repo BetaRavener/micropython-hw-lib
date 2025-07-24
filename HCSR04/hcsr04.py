@@ -3,6 +3,8 @@ Micropython module for HC-SR04 ultrasonic ranging module.
 Compatible with ESP8266.
 Based on work of Euter2:
 https://github.com/Euter2/MicroPython/blob/master/ultrasonic.py
+Modified by Er-Rajas
+Replaced .low() / .high() with .value(0) / .value(1)
 """
 from machine import Pin, time_pulse_us
 from time import sleep_us
@@ -19,9 +21,9 @@ class HCSR04:
 
     def _pulse(self):
         """Trigger ultrasonic module with 10us pulse."""
-        self._trig.high()
+        self._trig.value(1)
         sleep_us(10)
-        self._trig.low()
+        self._trig.value(0)
 
     def distance(self):
         """Measure pulse length and return calculated distance [m]."""
